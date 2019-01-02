@@ -14,10 +14,11 @@ const restaurantKategorier = [
   "Nordisk",
   "Thai"
 ];
-
 const priser = ["Billig", "Medium", "Dyrt"];
+const service = ["Dårlig", "Helt grei", "Bra", "Eksemplarisk"];
 
 const restaurantOptions = mapToOptions(restaurantKategorier);
 const priceOptions = mapToOptions(priser);
+const serviceOptions = mapToOptions(service);
 
-export { restaurantOptions, priceOptions };
+export { restaurantOptions, priceOptions, serviceOptions };
