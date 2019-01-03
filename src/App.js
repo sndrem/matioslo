@@ -23,7 +23,6 @@ class App extends Component {
 
   authListener = () => {
     this.firebase.auth().onAuthStateChanged(user => {
-      console.log("User logged inn", user);
       if (user) {
         this.setState({
           user
