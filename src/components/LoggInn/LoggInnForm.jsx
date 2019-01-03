@@ -7,10 +7,6 @@ class LoggInnForm extends React.Component {
     password: ""
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   updateLoggInnState = event => {
     const field = event.target.name;
     const value = event.target.value;

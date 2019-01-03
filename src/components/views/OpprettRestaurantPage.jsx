@@ -9,9 +9,7 @@ class OpprettRestaurantPage extends React.Component {
     this.ref = fire.database().ref("restaurants");
   }
   saveRestaurantToDb = data => {
-    console.log(data);
-    const key = this.ref.push(data);
-    console.log("Lagrer data med nøkkel", key);
+    this.ref.child(data.name).set(data);
   };
   render() {
     return (
