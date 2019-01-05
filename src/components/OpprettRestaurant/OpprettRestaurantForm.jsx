@@ -43,7 +43,8 @@ class OpprettRestaurantForm extends Component {
         price: "",
         service: "",
         score: 3,
-        comment: ""
+        comment: "",
+        lastVisited: ""
       },
       errors: [],
       status: ""
@@ -117,7 +118,8 @@ class OpprettRestaurantForm extends Component {
           price: "",
           service: "",
           score: 3,
-          comment: ""
+          comment: "",
+          lastVisited: ""
         },
         errors: [],
         status: `${this.state.data.name} ble lagret i databasen`

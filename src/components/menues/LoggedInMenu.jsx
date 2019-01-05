@@ -1,8 +1,9 @@
 import React from "react";
 import { Menu } from "semantic-ui-react";
 import fire from "../../tools/firebase";
+import { withRouter } from "react-router-dom";
 
-const LoggedInMenu = () => {
+const LoggedInMenu = ({ history }) => {
   return (
     <Menu>
       <Menu.Item name="hjem" href="/">
@@ -12,11 +13,17 @@ const LoggedInMenu = () => {
         Legg til restaurant
       </Menu.Item>
 
-      <Menu.Item name="Logg ut" onClick={() => fire.auth().signOut()}>
+      <Menu.Item
+        name="Logg ut"
+        onClick={() => {
+          fire.auth().signOut();
+          history.push("/");
+        }}
+      >
         Logg ut
       </Menu.Item>
     </Menu>
   );
 };
 
-export default LoggedInMenu;
+export default withRouter(LoggedInMenu);

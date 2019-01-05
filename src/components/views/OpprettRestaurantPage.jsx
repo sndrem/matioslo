@@ -9,6 +9,7 @@ class OpprettRestaurantPage extends React.Component {
     this.ref = fire.database().ref("restaurants");
   }
   saveRestaurantToDb = data => {
+    data.lastVisited = new Date().getTime();
     this.ref.child(data.name).set(data);
   };
   render() {

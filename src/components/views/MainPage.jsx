@@ -4,8 +4,8 @@ import LoggedInMenu from "../menues/LoggedInMenu";
 import ForsideKnapper from "../forside/Forsideknapper";
 import ToppLister from "../forside/ToppLister";
 
-const MainPage = ({ user }) => {
-  const menu = user ? <LoggedInMenu /> : <MainMenu />;
+const MainPage = ({ user, props }) => {
+  const menu = user ? <LoggedInMenu {...props} /> : <MainMenu />;
   return (
     <div>
       {menu}
