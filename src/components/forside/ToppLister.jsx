@@ -3,6 +3,7 @@ import fire from "../../tools/firebase";
 import { Loader, Grid } from "semantic-ui-react";
 import restaurantService from "../../services/restaurantService";
 import Toppliste from "./Toppliste";
+import { convertToArray } from "../../tools/helpers";
 
 const NUMBER_OF_TOPS = 5;
 
@@ -26,7 +27,7 @@ class ToppLister extends Component {
     restaurantService.getTopRestaurants("lastVisited", NUMBER_OF_TOPS, data => {
       this.setState({
         ...this.state,
-        lastVisitedRestaurants: this.convertToArray(data),
+        lastVisitedRestaurants: convertToArray(data),
         active: false
       });
     });
@@ -36,22 +37,14 @@ class ToppLister extends Component {
     restaurantService.getTopRestaurants("score", NUMBER_OF_TOPS, data => {
       this.setState({
         ...this.state,
-        topRestaurants: this.convertToArray(data),
+        topRestaurants: convertToArray(data),
         active: false
       });
     });
   };
 
-  convertToArray = data => {
-    if (!data) return [];
-    const keys = Object.keys(data);
-    return keys.map(key => data[key]);
-  };
-
   render() {
     const { topRestaurants, lastVisitedRestaurants } = this.state;
-    console.log(lastVisitedRestaurants);
-
     return (
       <div>
         <Loader active={this.state.active} inline />

@@ -38,6 +38,9 @@ const Toppliste = ({ restaurants, title }) => {
     <div>
       <h1>{title}</h1>
       {listElement}
+      <p>
+        <a href="/restauranter">Se alle restauranter</a>
+      </p>
     </div>
   );
 };

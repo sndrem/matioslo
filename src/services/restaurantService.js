@@ -14,6 +14,11 @@ const restaurantService = {
         });
         cb(sorted.reverse());
       });
+  },
+  getAllRestaurants: cb => {
+    ref.once("value", snapshot => {
+      cb(snapshot.val());
+    });
   }
 };
 

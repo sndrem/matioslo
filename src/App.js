@@ -5,6 +5,7 @@ import LoggInnPage from "./components/views/LoggInnPage";
 import OpprettRestaurantPage from "./components/views/OpprettRestaurantPage";
 import { Container } from "semantic-ui-react";
 import fire from "./tools/firebase";
+import AlleRestauranter from "./components/views/AlleRestauranter";
 
 require("dotenv").config();
 
@@ -55,6 +56,11 @@ class App extends Component {
               path="/logginn"
               exact
               render={props => <LoggInnPage {...props} user={user} />}
+            />
+            <Route
+              path="/restauranter"
+              exact
+              render={props => <AlleRestauranter {...props} user={user} />}
             />
           </div>
         </Router>

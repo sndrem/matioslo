@@ -9,8 +9,10 @@ const MainPage = ({ user, props }) => {
   return (
     <div>
       {menu}
-      <ForsideKnapper />
-      <ToppLister />
+      <div className="forside">
+        {/* <ForsideKnapper className="forside-knapper" /> */}
+        <ToppLister />
+      </div>
     </div>
   );
 };
