@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import fire from "../../services/restaurantService";
-import LoggedInMenu from "../menues/LoggedInMenu";
 import MainMenu from "../menues/MainMenu";
+import Footer from "../footer/Footer";
 import Toppliste from "../forside/Toppliste";
 import { convertToArray } from "../../tools/helpers";
 import { Loader } from "semantic-ui-react";
@@ -29,14 +29,9 @@ class AlleRestauranter extends Component {
   };
 
   render() {
-    const menu = this.props.user ? (
-      <LoggedInMenu {...this.props} />
-    ) : (
-      <MainMenu />
-    );
     return (
       <div>
-        {menu}
+        <MainMenu user={this.props.user} history={this.props.history} />
         <Loader active={this.state.loading} />
         <Toppliste
           restaurants={this.state.restaurants}

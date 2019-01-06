@@ -1,5 +1,5 @@
 import React from "react";
-import LoggedInMenu from "../menues/LoggedInMenu";
+import MainMenu from "../menues/MainMenu";
 import OpprettRestaurantForm from "../OpprettRestaurant/OpprettRestaurantForm";
 import fire from "../../tools/firebase";
 
@@ -15,7 +15,7 @@ class OpprettRestaurantPage extends React.Component {
   render() {
     return (
       <div>
-        <LoggedInMenu />
+        <MainMenu user={this.props.user} history={this.props.history} />
         <h1>Legg til en restaurant</h1>
         <OpprettRestaurantForm saveToDb={this.saveRestaurantToDb} />
       </div>
