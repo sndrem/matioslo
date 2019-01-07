@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainPage from "./components/views/MainPage";
 import LoggInnPage from "./components/views/LoggInnPage";
 import OpprettRestaurantPage from "./components/views/OpprettRestaurantPage";
-import { Container } from "semantic-ui-react";
 import fire from "./tools/firebase";
 import AlleRestauranter from "./components/views/AlleRestauranter";
 
@@ -39,32 +38,30 @@ class App extends Component {
   render() {
     const { user } = this.state;
     return (
-      <Container>
-        <Router>
-          <div>
-            <Route
-              path="/"
-              exact
-              render={props => <MainPage {...props} user={user} />}
-            />
-            <Route
-              path="/opprett"
-              exact
-              render={props => <OpprettRestaurantPage {...props} user={user} />}
-            />
-            <Route
-              path="/logginn"
-              exact
-              render={props => <LoggInnPage {...props} user={user} />}
-            />
-            <Route
-              path="/restauranter"
-              exact
-              render={props => <AlleRestauranter {...props} user={user} />}
-            />
-          </div>
-        </Router>
-      </Container>
+      <Router>
+        <div>
+          <Route
+            path="/"
+            exact
+            render={props => <MainPage {...props} user={user} />}
+          />
+          <Route
+            path="/opprett"
+            exact
+            render={props => <OpprettRestaurantPage {...props} user={user} />}
+          />
+          <Route
+            path="/logginn"
+            exact
+            render={props => <LoggInnPage {...props} user={user} />}
+          />
+          <Route
+            path="/restauranter"
+            exact
+            render={props => <AlleRestauranter {...props} user={user} />}
+          />
+        </div>
+      </Router>
     );
   }
 }

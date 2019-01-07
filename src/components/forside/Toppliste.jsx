@@ -1,5 +1,6 @@
 import React from "react";
 import { Item } from "semantic-ui-react";
+import "./toppliste.scss";
 
 const Toppliste = ({ restaurants, title }) => {
   let listElement = "";

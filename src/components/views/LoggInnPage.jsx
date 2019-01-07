@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import Header from "../header/Header";
 import MainMenu from "../menues/MainMenu";
 import LoggInnForm from "../LoggInn/LoggInnForm";
 import fire from "../../tools/firebase";
+import { Container } from "semantic-ui-react";
 
 class LoggInnPage extends Component {
   state = {
@@ -25,8 +27,11 @@ class LoggInnPage extends Component {
   render() {
     return (
       <div>
+        <Header />
         <MainMenu />
-        <LoggInnForm loggInn={this.loggInn} error={this.state.error} />
+        <Container>
+          <LoggInnForm loggInn={this.loggInn} error={this.state.error} />
+        </Container>
       </div>
     );
   }

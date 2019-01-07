@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+import Header from "../header/Header";
 import fire from "../../services/restaurantService";
 import MainMenu from "../menues/MainMenu";
-import Footer from "../footer/Footer";
 import Toppliste from "../forside/Toppliste";
 import { convertToArray } from "../../tools/helpers";
-import { Loader } from "semantic-ui-react";
+import { Loader, Container } from "semantic-ui-react";
 
 class AlleRestauranter extends Component {
   constructor(props) {
@@ -31,12 +31,15 @@ class AlleRestauranter extends Component {
   render() {
     return (
       <div>
+        <Header />
         <MainMenu user={this.props.user} history={this.props.history} />
-        <Loader active={this.state.loading} />
-        <Toppliste
-          restaurants={this.state.restaurants}
-          title="Alle restaurantene"
-        />
+        <Container>
+          <Loader active={this.state.loading} />
+          <Toppliste
+            restaurants={this.state.restaurants}
+            title="Alle restaurantene"
+          />
+        </Container>
       </div>
     );
   }
