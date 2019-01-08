@@ -40,7 +40,7 @@ const Toppliste = ({ restaurants, title }) => {
       <h1>{title}</h1>
       {listElement}
       <p>
-        <a href="/restauranter">Se alle restauranter</a>
+        <a href="#/restauranter">Se alle restauranter</a>
       </p>
     </div>
   );
