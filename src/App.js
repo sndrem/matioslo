@@ -6,7 +6,7 @@ import OpprettRestaurantPage from "./components/views/OpprettRestaurantPage";
 import fire from "./tools/firebase";
 import AlleRestauranter from "./components/views/AlleRestauranter";
 
-require("dotenv").config();
+// require("dotenv").config();
 
 class App extends Component {
   constructor(props) {
