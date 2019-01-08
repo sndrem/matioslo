@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import MainPage from "./components/views/MainPage";
 import LoggInnPage from "./components/views/LoggInnPage";
 import OpprettRestaurantPage from "./components/views/OpprettRestaurantPage";

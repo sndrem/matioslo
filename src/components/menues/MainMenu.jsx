@@ -9,11 +9,11 @@ export default class MenuExampleBasic extends Component {
     return (
       <div className="menu-wrapper">
         <div className="menu-item">
-          <a href="/">Hjem</a>
+          <a href="#/">Hjem</a>
         </div>
         {user ? (
           <div className="menu-item">
-            <a href="/opprett">Legg til restaurant</a>
+            <a href="#/opprett">Legg til restaurant</a>
           </div>
         ) : (
           ""
@@ -21,10 +21,10 @@ export default class MenuExampleBasic extends Component {
         {user ? (
           <div className="menu-item">
             <a
-              href="/"
+              href="#/"
               onClick={() => {
                 fire.auth().signOut();
-                this.props.history.push("/");
+                this.props.history.push("#/");
               }}
             >
               Logg ut
@@ -32,7 +32,7 @@ export default class MenuExampleBasic extends Component {
           </div>
         ) : (
           <div className="menu-item">
-            <a href="/logginn">Logg inn</a>
+            <a href="#/logginn">Logg inn</a>
           </div>
         )}
       </div>
