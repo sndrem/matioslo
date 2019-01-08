@@ -24,10 +24,10 @@ const ErrorList = ({ errors }) => {
   );
 };
 
-const LagringOkMelding = ({ status }) => {
+const Status = ({ title, status }) => {
   return (
     <Message info>
-      <Message.Header>Lagring ok</Message.Header>
+      <Message.Header>{title}</Message.Header>
       <p>{status}</p>
     </Message>
   );
@@ -110,19 +110,24 @@ class OpprettRestaurantForm extends Component {
 
   saveToDb = () => {
     if (this.validateForm()) {
-      this.props.saveToDb(this.state.data);
-      this.setState({
-        data: {
-          name: "",
-          category: "",
-          price: "",
-          service: "",
-          score: 3,
-          comment: "",
-          lastVisited: ""
-        },
-        errors: [],
-        status: `${this.state.data.name} ble lagret i databasen`
+      let status = `${this.state.data.name} ble lagret i databasen`;
+      this.props.saveToDb(this.state.data, error => {
+        if (error) {
+          status = "Det var et problem ved lagring til databasen";
+        }
+        this.setState({
+          data: {
+            name: "",
+            category: "",
+            price: "",
+            service: "",
+            score: 3,
+            comment: "",
+            lastVisited: ""
+          },
+          errors: [],
+          status
+        });
       });
     }
   };
@@ -137,7 +142,11 @@ class OpprettRestaurantForm extends Component {
     } = this.state;
     return (
       <div>
-        {status ? <LagringOkMelding status={status} name={name} /> : ""}
+        {status ? (
+          <Status title="Informasjon" status={status} name={name} />
+        ) : (
+          ""
+        )}
         {errors.length > 0 ? <ErrorList errors={errors} /> : ""}
         <Form name="restaurantform" onSubmit={this.saveToDb}>
           <Form.Field>
