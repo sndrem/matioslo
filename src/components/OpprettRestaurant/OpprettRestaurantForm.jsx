@@ -44,6 +44,7 @@ class OpprettRestaurantForm extends Component {
         service: "",
         score: 3,
         comment: "",
+        homepage: "",
         lastVisited: ""
       },
       errors: [],
@@ -68,7 +69,7 @@ class OpprettRestaurantForm extends Component {
   };
 
   validateForm = () => {
-    const { name, category, price, service, score } = this.state.data;
+    const { name, category, price, service, score, homepage } = this.state.data;
     const errors = [];
     if (this.empty(name)) {
       errors.push("Navn kan ikke være tom");
@@ -123,6 +124,7 @@ class OpprettRestaurantForm extends Component {
             service: "",
             score: 3,
             comment: "",
+            homepage: "",
             lastVisited: ""
           },
           errors: [],
@@ -138,7 +140,7 @@ class OpprettRestaurantForm extends Component {
     const {
       errors,
       status,
-      data: { name, price, service, comment, category, score }
+      data: { name, price, service, comment, category, score, homepage }
     } = this.state;
     return (
       <div>
@@ -202,6 +204,15 @@ class OpprettRestaurantForm extends Component {
               min="1"
               max="6"
               required
+            />
+          </Form.Field>
+          <Form.Field name="homepage">
+            <label>Hjemmeside</label>
+            <Input
+              type="text"
+              value={homepage}
+              name="homepage"
+              onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field name="comment">
