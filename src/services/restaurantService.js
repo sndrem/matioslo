@@ -7,7 +7,7 @@ const restaurantService = {
     ref
       .orderByChild(orderBy)
       .limitToFirst(limit)
-      .on("value", snapshot => {
+      .once("value", snapshot => {
         const sorted = [];
         snapshot.forEach(child => {
           sorted.push(child.val());

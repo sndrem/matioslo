@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import googleAnalytics from "../../services/googleAnalytics";
 import Header from "../header/Header";
 import fire from "../../services/restaurantService";
-import MainMenu from "../menues/MainMenu";
 import Toppliste from "../forside/Toppliste";
 import { convertToArray } from "../../tools/helpers";
 import { Loader, Container } from "semantic-ui-react";

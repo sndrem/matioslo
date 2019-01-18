@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import MainMenu from "../menues/MainMenu";
 import { Container, Grid, Loader, Segment, Icon } from "semantic-ui-react";
 import restaurantService from "../../services/restaurantService";
 import ToppListe from "../forside/Toppliste";

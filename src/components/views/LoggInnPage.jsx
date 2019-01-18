@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import googleAnalytics from "../../services/googleAnalytics";
 import Header from "../header/Header";
-import MainMenu from "../menues/MainMenu";
 import LoggInnForm from "../LoggInn/LoggInnForm";
 import fire from "../../tools/firebase";
 import { Container } from "semantic-ui-react";
