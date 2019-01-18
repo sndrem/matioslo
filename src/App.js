@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/browser";
 import React, { Component } from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
 import googleAnalytics from "./services/googleAnalytics";
@@ -8,6 +9,10 @@ import fire from "./tools/firebase";
 import AlleRestauranter from "./components/views/AlleRestauranter";
 
 googleAnalytics.settSidevisning("/forside");
+
+Sentry.init({
+  dsn: "https://36442b1db81841dc8855223350ed7ed7@sentry.io/1374858"
+});
 
 class App extends Component {
   constructor(props) {
