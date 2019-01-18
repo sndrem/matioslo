@@ -27,8 +27,7 @@ class LoggInnPage extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <MainMenu />
+        <Header user={this.props.user} history={this.props.history} />
         <Container>
           <LoggInnForm loggInn={this.loggInn} error={this.state.error} />
         </Container>

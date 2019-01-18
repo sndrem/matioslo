@@ -69,7 +69,14 @@ class OpprettRestaurantForm extends Component {
   };
 
   validateForm = () => {
-    const { name, category, price, service, score, homepage } = this.state.data;
+    const {
+      name,
+      category,
+      price,
+      service,
+      score,
+      lastVisited
+    } = this.state.data;
     const errors = [];
     if (this.empty(name)) {
       errors.push("Navn kan ikke være tom");
@@ -89,6 +96,10 @@ class OpprettRestaurantForm extends Component {
 
     if (this.empty(score)) {
       errors.push("Score kan ikke være tom");
+    }
+
+    if (this.empty(lastVisited)) {
+      errors.push("Dato besøkt må være satt");
     }
 
     if (errors.length > 0) {
@@ -140,7 +151,16 @@ class OpprettRestaurantForm extends Component {
     const {
       errors,
       status,
-      data: { name, price, service, comment, category, score, homepage }
+      data: {
+        name,
+        price,
+        service,
+        comment,
+        category,
+        score,
+        homepage,
+        lastVisited
+      }
     } = this.state;
     return (
       <div>
@@ -193,7 +213,7 @@ class OpprettRestaurantForm extends Component {
               value={service}
             />
           </Form.Field>
-          <Form.Field name="score">
+          <Form.Field>
             <label>Totalscore</label>
             <Input
               onChange={this.handleChange}
@@ -206,7 +226,16 @@ class OpprettRestaurantForm extends Component {
               required
             />
           </Form.Field>
-          <Form.Field name="homepage">
+          <Form.Field>
+            <label>Når var besøket?</label>
+            <Input
+              type="date"
+              name="lastVisited"
+              value={lastVisited}
+              onChange={this.handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
             <label>Hjemmeside</label>
             <Input
               type="text"
@@ -215,7 +244,7 @@ class OpprettRestaurantForm extends Component {
               onChange={this.handleChange}
             />
           </Form.Field>
-          <Form.Field name="comment">
+          <Form.Field>
             <label>Kommentar</label>
             <TextArea
               name="comment"

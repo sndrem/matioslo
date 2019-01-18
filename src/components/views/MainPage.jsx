@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import MainMenu from "../menues/MainMenu";
-import { Container, Grid } from "semantic-ui-react";
+import { Container, Grid, Loader, Segment, Icon } from "semantic-ui-react";
 import restaurantService from "../../services/restaurantService";
-import ForsideKnapper from "../forside/Forsideknapper";
 import ToppListe from "../forside/Toppliste";
 import Header from "../header/Header";
-import Hero from "../hero/Hero";
+import Velkommen from "../velkommen/velkommen";
 import { convertToArray } from "../../tools/helpers";
 
 const NUMBER_OF_TOPS = 5;
@@ -14,7 +13,9 @@ class MainPage extends Component {
     super(props);
     this.state = {
       topRestaurants: [],
-      lastVisitedRestaurants: []
+      lastVisitedRestaurants: [],
+      loadingTopRestaurants: true,
+      loadingLastVisitedRestaurants: true
     };
   }
 
@@ -28,6 +29,7 @@ class MainPage extends Component {
       this.setState({
         ...this.state,
         topRestaurants: convertToArray(data),
+        loadingTopRestaurants: false,
         active: false
       });
     });
@@ -38,47 +40,52 @@ class MainPage extends Component {
       this.setState({
         ...this.state,
         lastVisitedRestaurants: convertToArray(data),
+        loadingLastVisitedRestaurants: false,
         active: false
       });
     });
   };
 
   render() {
-    const { topRestaurants, lastVisitedRestaurants } = this.state;
+    const {
+      topRestaurants,
+      lastVisitedRestaurants,
+      loadingTopRestaurants,
+      loadingLastVisitedRestaurants
+    } = this.state;
     return (
       <div>
-        <Header />
-        <MainMenu user={this.props.user} history={this.props.history} />
+        <Header user={this.props.user} history={this.props.history} />
         <Container>
-          <Grid>
-            <Grid.Row columns={2}>
-              <Grid.Column>
+          {/* <Velkommen /> */}
+          <Grid stackable columns={2}>
+            {/* <Grid.Column>
                 <Hero />
-              </Grid.Column>
-              <Grid.Column>
+              </Grid.Column> */}
+            <Grid.Column>
+              <Segment>
+                <Loader active={loadingTopRestaurants} />
                 <div className="forside">
-                  {/* <ForsideKnapper className="forside-knapper" /> */}
                   <ToppListe
                     restaurants={topRestaurants}
                     title={`Topp ${NUMBER_OF_TOPS} restauranter`}
+                    loading={loadingTopRestaurants}
                   />
                 </div>
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row columns={2}>
-              <Grid.Column>
+              </Segment>
+            </Grid.Column>
+            <Grid.Column>
+              <Segment>
+                <Loader active={loadingLastVisitedRestaurants} />
                 <div className="forside">
-                  {/* <ForsideKnapper className="forside-knapper" /> */}
                   <ToppListe
                     restaurants={lastVisitedRestaurants}
                     title={`Siste ${NUMBER_OF_TOPS} besøkte`}
+                    loading={loadingLastVisitedRestaurants}
                   />
                 </div>
-              </Grid.Column>
-              <Grid.Column>
-                <Hero />
-              </Grid.Column>
-            </Grid.Row>
+              </Segment>
+            </Grid.Column>
           </Grid>
         </Container>
       </div>

@@ -3,9 +3,11 @@
   width: 10em;
   text-align: center;
   background: #424348;
+  color: white;
   display: flex;
   flex-direction: column;
   position: absolute;
+  z-index: 1;
 
   .menu-item {
     margin: 30px 0px;

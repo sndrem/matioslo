@@ -31,8 +31,7 @@ class AlleRestauranter extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <MainMenu user={this.props.user} history={this.props.history} />
+        <Header user={this.props.user} history={this.props.history} />
         <Container>
           <Loader active={this.state.loading} />
           <Toppliste

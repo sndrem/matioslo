@@ -11,7 +11,7 @@ class OpprettRestaurantPage extends React.Component {
     this.ref = fire.database().ref("restaurants");
   }
   saveRestaurantToDb = (data, cb) => {
-    data.lastVisited = new Date().getTime();
+    data.registered = new Date().getTime();
     this.ref.child(data.name).set(data, error => {
       if (error) {
         cb(error);
@@ -23,8 +23,7 @@ class OpprettRestaurantPage extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-        <MainMenu user={this.props.user} history={this.props.history} />
+        <Header user={this.props.user} history={this.props.history} />
         <Container>
           <h1>Legg til en restaurant</h1>
           <OpprettRestaurantForm saveToDb={this.saveRestaurantToDb} />
