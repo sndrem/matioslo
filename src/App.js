@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
+import googleAnalytics from "./services/googleAnalytics";
 import MainPage from "./components/views/MainPage";
 import LoggInnPage from "./components/views/LoggInnPage";
 import OpprettRestaurantPage from "./components/views/OpprettRestaurantPage";
 import fire from "./tools/firebase";
 import AlleRestauranter from "./components/views/AlleRestauranter";
 
-// require("dotenv").config();
+googleAnalytics.settSidevisning("/forside");
 
 class App extends Component {
   constructor(props) {

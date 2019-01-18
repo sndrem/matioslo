@@ -1,9 +1,12 @@
 import React from "react";
+import googleAnalytics from "../../services/googleAnalytics";
 import Header from "../header/Header";
 import MainMenu from "../menues/MainMenu";
 import OpprettRestaurantForm from "../OpprettRestaurant/OpprettRestaurantForm";
 import fire from "../../tools/firebase";
 import { Container } from "semantic-ui-react";
+
+googleAnalytics.settSidevisning("/opprettRestaurant");
 
 class OpprettRestaurantPage extends React.Component {
   constructor(props) {

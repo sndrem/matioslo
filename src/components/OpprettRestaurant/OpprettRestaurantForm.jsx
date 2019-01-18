@@ -8,6 +8,7 @@ import {
   List,
   Message
 } from "semantic-ui-react";
+import googleAnalytics from "../../services/googleAnalytics";
 import {
   restaurantOptions,
   priceOptions,
@@ -122,6 +123,11 @@ class OpprettRestaurantForm extends Component {
 
   saveToDb = () => {
     if (this.validateForm()) {
+      googleAnalytics.settEvent(
+        "User",
+        "Restaurant ble lagret i databasen",
+        "Opprettelse av restaurant"
+      );
       let status = `${this.state.data.name} ble lagret i databasen`;
       this.props.saveToDb(this.state.data, error => {
         if (error) {

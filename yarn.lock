@@ -7352,6 +7352,10 @@ react-error-overlay@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.2.tgz#888957b884d4b25b083a82ad550f7aad96585394"
 
+react-ga@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.5.6.tgz#5a2e2fa78ae298e5b0a4498210eeec631ef1b562"
+
 react-kawaii@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/react-kawaii/-/react-kawaii-0.10.0.tgz#835eeac3ff26b1dc3825593343ab55ba49c48bef"

@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+import googleAnalytics from "../../services/googleAnalytics";
 import { Menu } from "semantic-ui-react";
 import fire from "../../tools/firebase";
 import "./MainMenu.scss";
+
+googleAnalytics.settSidevisning("/loggut");
 
 export default class MenuExampleBasic extends Component {
   render() {
@@ -61,6 +64,11 @@ export default class MenuExampleBasic extends Component {
           <Menu.Item
             name="Logg ut"
             onClick={() => {
+              googleAnalytics.settEvent(
+                "User",
+                "Bruker logget ut",
+                "Utlogging"
+              );
               fire.auth().signOut();
               this.props.history.push("#/");
             }}
