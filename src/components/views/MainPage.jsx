@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Container, Grid, Loader, Segment, Icon } from "semantic-ui-react";
+import { Container, Grid, Loader, Segment } from "semantic-ui-react";
 import restaurantService from "../../services/restaurantService";
 import ToppListe from "../forside/Toppliste";
 import Header from "../header/Header";
-import Velkommen from "../velkommen/velkommen";
 import { convertToArray } from "../../tools/helpers";
 
 const NUMBER_OF_TOPS = 5;

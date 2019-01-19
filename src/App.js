@@ -1,6 +1,11 @@
 import * as Sentry from "@sentry/browser";
 import React, { Component } from "react";
-import { HashRouter as Router, Route } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import googleAnalytics from "./services/googleAnalytics";
 import MainPage from "./components/views/MainPage";
 import LoggInnPage from "./components/views/LoggInnPage";
@@ -45,7 +50,7 @@ class App extends Component {
     const { user } = this.state;
     return (
       <Router>
-        <div>
+        <Switch>
           <Route
             path="/"
             exact
@@ -53,6 +58,11 @@ class App extends Component {
           />
           <Route
             path="/opprett"
+            exact
+            render={props => <OpprettRestaurantPage {...props} user={user} />}
+          />
+          <Route
+            path="/rediger/:restaurant"
             exact
             render={props => <OpprettRestaurantPage {...props} user={user} />}
           />
@@ -66,7 +76,8 @@ class App extends Component {
             exact
             render={props => <AlleRestauranter {...props} user={user} />}
           />
-        </div>
+          <Redirect to="/" />
+        </Switch>
       </Router>
     );
   }
