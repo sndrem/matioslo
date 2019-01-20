@@ -1,5 +1,5 @@
 import React from "react";
-import { Item, Rating } from "semantic-ui-react";
+import { Item, Rating, Icon } from "semantic-ui-react";
 import "./toppliste.scss";
 
 const Toppliste = ({ restaurants, title, loading }) => {
@@ -14,14 +14,33 @@ const Toppliste = ({ restaurants, title, loading }) => {
             <Item key={r.name}>
               <Item.Content>
                 <Item.Header>{r.name}</Item.Header>
+                <Item.Meta>
+                  <Rating
+                    icon="heart"
+                    defaultRating={r.score}
+                    maxRating={6}
+                    disabled
+                  />
+                </Item.Meta>
                 <Item.Meta>{r.category}</Item.Meta>
-                <Item.Meta>Besøkt: {lastVisited}</Item.Meta>
-                <Rating
-                  icon="heart"
-                  defaultRating={r.score}
-                  maxRating={6}
-                  disabled
-                />
+                <Item.Meta>
+                  {r.address ? (
+                    <span>
+                      <Icon name="map" />
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                          r.address
+                        )}`}
+                      >
+                        {r.address}
+                      </a>
+                    </span>
+                  ) : (
+                    "Ingen adresse tilgjengelig"
+                  )}
+                </Item.Meta>
                 <Item.Description>
                   {r.comment ? r.comment : "Ingen kommentar lagt inn."}
                 </Item.Description>
@@ -38,6 +57,7 @@ const Toppliste = ({ restaurants, title, loading }) => {
                     "Ingen nettside lagt til."
                   )}
                 </Item.Extra>
+                <Item.Meta>Besøkt: {lastVisited}</Item.Meta>
               </Item.Content>
             </Item>
           );

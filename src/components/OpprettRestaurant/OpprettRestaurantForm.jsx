@@ -44,6 +44,7 @@ class OpprettRestaurantForm extends Component {
         price: "",
         service: "",
         score: 3,
+        address: "",
         comment: "",
         homepage: "",
         lastVisited: ""
@@ -140,6 +141,7 @@ class OpprettRestaurantForm extends Component {
             price: "",
             service: "",
             score: 3,
+            address: "",
             comment: "",
             homepage: "",
             lastVisited: ""
@@ -164,6 +166,7 @@ class OpprettRestaurantForm extends Component {
         comment,
         category,
         score,
+        address,
         homepage,
         lastVisited
       }
@@ -238,6 +241,15 @@ class OpprettRestaurantForm extends Component {
               type="date"
               name="lastVisited"
               value={lastVisited}
+              onChange={this.handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Adresse</label>
+            <Input
+              type="text"
+              name="address"
+              value={address}
               onChange={this.handleChange}
             />
           </Form.Field>

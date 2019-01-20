@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import googleAnalytics from "../../services/googleAnalytics";
 import Header from "../header/Header";
 import OpprettRestaurantForm from "../OpprettRestaurant/OpprettRestaurantForm";
@@ -23,6 +24,9 @@ class OpprettRestaurantPage extends React.Component {
     });
   };
   render() {
+    if (!this.props.user) {
+      return <Redirect to="/logginn" />;
+    }
     return (
       <div>
         <Header user={this.props.user} history={this.props.history} />
