@@ -14,6 +14,7 @@ const Toppliste = ({ restaurants, title, loading }) => {
             <Item key={r.name}>
               <Item.Content>
                 <Item.Header>{r.name}</Item.Header>
+                <Item.Meta>{r.category}</Item.Meta>
                 <Item.Meta>Besøkt: {lastVisited}</Item.Meta>
                 <Rating
                   icon="heart"
