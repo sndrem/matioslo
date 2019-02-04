@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MainMenu from "../menues/MainMenu";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Icon } from "semantic-ui-react";
 import "./header.scss";
 
@@ -22,4 +22,4 @@ Header.propTypes = {
   history: PropTypes.object
 };
 
-export default Header;
+export default withRouter(Header);

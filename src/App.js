@@ -12,6 +12,7 @@ import LoggInnPage from "./components/views/LoggInnPage";
 import OpprettRestaurantPage from "./components/views/OpprettRestaurantPage";
 import fire from "./tools/firebase";
 import AlleRestauranter from "./components/views/AlleRestauranter";
+import RedigerRestaurant from "./components/redigerRestaurant/RedigerRestaurant";
 
 googleAnalytics.settSidevisning("/forside");
 
@@ -61,11 +62,11 @@ class App extends Component {
             exact
             render={props => <OpprettRestaurantPage {...props} user={user} />}
           />
-          <Route
+          {/* <Route
             path="/rediger/:restaurant"
             exact
             render={props => <OpprettRestaurantPage {...props} user={user} />}
-          />
+          /> */}
           <Route
             path="/logginn"
             exact

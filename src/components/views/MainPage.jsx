@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Grid, Loader, Segment } from "semantic-ui-react";
 import restaurantService from "../../services/restaurantService";
+import Velkommen from "../velkommen/velkommen";
 import ToppListe from "../forside/Toppliste";
 import Header from "../header/Header";
 import { convertToArray } from "../../tools/helpers";
@@ -53,13 +54,10 @@ class MainPage extends Component {
     } = this.state;
     return (
       <div>
-        <Header user={this.props.user} history={this.props.history} />
+        <Header user={this.props.user} />
         <Container>
-          {/* <Velkommen /> */}
+          <Velkommen />
           <Grid stackable columns={2}>
-            {/* <Grid.Column>
-                <Hero />
-              </Grid.Column> */}
             <Grid.Column>
               <Segment>
                 <Loader active={loadingTopRestaurants} />

@@ -19,6 +19,11 @@ const restaurantService = {
     ref.once("value", snapshot => {
       cb(snapshot.val());
     });
+  },
+  getRestaurant: (id, cb) => {
+    ref.child(id).once("value", snapshot => {
+      cb(snapshot.val());
+    });
   }
 };
 

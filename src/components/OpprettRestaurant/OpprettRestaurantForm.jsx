@@ -55,7 +55,7 @@ class OpprettRestaurantForm extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = (event, { name, value }) => {
+  handleChange = (_, { name, value }) => {
     if (name === "score") {
       value = parseInt(value);
     }
